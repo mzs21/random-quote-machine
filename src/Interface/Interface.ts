@@ -1,8 +1,14 @@
-export interface QuoteAPIData {
-  text?: string;
-  author?: string;
+import React from "react";
+
+export interface StyleProps {
+  newQuoteButton?: (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
+  backgroundColor?: React.CSSProperties["backgroundColor"];
+  foregroundColor?: React.CSSProperties["color"];
 }
 
-export interface ButtonProps {
-  newQuoteButton: () => void;
+export interface QuoteAPIData extends StyleProps {
+  text?: string;
+  author?: string;
 }

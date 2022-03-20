@@ -1,11 +1,16 @@
+import { StyleProps } from "../../Interface/Interface";
 
-let NewQuoteButton = (
-  newQuoteButton: React.MouseEventHandler<HTMLButtonElement>
-) => {
+let NewQuoteButton = ({ newQuoteButton, backgroundColor }: StyleProps) => {
   return (
-    <>
-      <button onClick={newQuoteButton}> New Quote </button>
-    </>
+    <div className="flex justify-end">
+      <button
+        onClick={newQuoteButton}
+        style={{ backgroundColor: backgroundColor }}
+        className="w-max h-max rounded-md text-white p-2 mt-8 "
+      >
+        New Quote
+      </button>
+    </div>
   );
 };
 

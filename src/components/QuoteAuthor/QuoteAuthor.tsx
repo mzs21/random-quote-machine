@@ -1,9 +1,12 @@
 import { QuoteAPIData } from "../../Interface/Interface";
 
-let QuoteAuthor = ({ author }: QuoteAPIData) => {
+let QuoteAuthor = ({ author, foregroundColor }: QuoteAPIData) => {
   return (
-    <div>
-      <p>{author}</p>
+    <div
+      className="flex justify-end mt-6 font-medium"
+      style={{ color: foregroundColor }}
+    >
+      <p>- {author}</p>
     </div>
   );
 };

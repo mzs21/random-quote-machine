@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { QuoteAPIData } from "../../Interface/Interface";
+import NewQuoteButton from "../Buttons/NewQuoteButton";
+import Footer from "../Footer/Footer";
 import QuoteAuthor from "../QuoteAuthor/QuoteAuthor";
 import QuoteText from "../QuoteText/QuoteText";
-import NewQuoteButton from '../Buttons/NewQuoteButton';
 
 let QuoteBox = () => {
   const [quotes, setQuotes] = useState<QuoteAPIData[]>([]);
   const [randomQuotes, setRandomQuotes] = useState<QuoteAPIData>();
+  const [color, setColor] = useState<string>("black");
 
   useEffect(() => {
     let fetchData = async () => {
@@ -27,24 +29,53 @@ let QuoteBox = () => {
     let randomIndex: number = Math.floor(Math.random() * quotes.length); // Random index of data for 'randomQuotes'
 
     setRandomQuotes(quotes[randomIndex]);
+
+    const colors = [
+      "#16a085",
+      "#27ae60",
+      "#2c3e50",
+      "#f39c12",
+      "#e74c3c",
+      "#9b59b6",
+      "#FB6964",
+      "#342224",
+      "#bbaeb0",
+      "#BDBB99",
+      "#77B1A9",
+      "#73A857",
+    ];
+
+    let randomColorIndex: number = Math.floor(Math.random() * colors.length);
+
+    setColor(colors[randomColorIndex]);
   };
 
   let quote = randomQuotes?.text;
   let authorName = randomQuotes?.author;
 
   return (
-    <>
-      {randomQuotes ? (
-        <>
-          <QuoteText text={quote} />
-          <QuoteAuthor author={authorName || "No Author"} />
-        </>
-      ) : (
-        <h2>Loading</h2>
-      )}
-
-      <NewQuoteButton newQuoteButton={getNewQuote} />
-    </>
+    <div
+      style={{ backgroundColor: color }}
+      className="grid place-items-center h-screen"
+    >
+      <div className="mt-10 mx-10 mb-0 rounded-lg p-10 bg-white">
+        {randomQuotes ? (
+          <>
+            <QuoteText text={quote} foregroundColor={color} />
+            <QuoteAuthor
+              author={authorName || "No Author"}
+              foregroundColor={color}
+            />
+          </>
+        ) : (
+          <h2 className="underline decoration-blue-600 decoration-wavy text-9xl text-sky-600">
+            Loading
+          </h2>
+        )}
+        <NewQuoteButton newQuoteButton={getNewQuote} backgroundColor={color} />
+        <Footer />
+      </div>
+    </div>
   );
 };
 
