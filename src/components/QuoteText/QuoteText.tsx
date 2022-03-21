@@ -1,6 +1,6 @@
-import { QuoteAPIData } from "../../Interface/Interface";
+import { QuoteAPIData, StyleProps } from "../../Interface/Interface";
 
-let QuoteText = ({ text, foregroundColor }: QuoteAPIData) => {
+let QuoteText = ({ text, foregroundColor}: (QuoteAPIData & StyleProps)) => {
   return (
     <div
       className="text-center font-black font-sans"

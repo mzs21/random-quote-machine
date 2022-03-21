@@ -1,8 +1,14 @@
-import { StyleProps } from "../../Interface/Interface";
+import {
+  ButtonProps,
+  StyleProps
+} from "../../Interface/Interface";
 
-let NewQuoteButton = ({ newQuoteButton, backgroundColor }: StyleProps) => {
+let Buttons = ({
+  newQuoteButton,
+  backgroundColor,
+}: StyleProps & ButtonProps) => {
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end self-center">
       <button
         onClick={newQuoteButton}
         style={{ backgroundColor: backgroundColor }}
@@ -14,4 +20,4 @@ let NewQuoteButton = ({ newQuoteButton, backgroundColor }: StyleProps) => {
   );
 };
 
-export default NewQuoteButton;
+export default Buttons;

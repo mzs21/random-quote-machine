@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { QuoteAPIData } from "../../Interface/Interface";
-import NewQuoteButton from "../Buttons/NewQuoteButton";
+import Buttons from "../Buttons/NewQuoteButton";
 import Footer from "../Footer/Footer";
 import QuoteAuthor from "../QuoteAuthor/QuoteAuthor";
 import QuoteText from "../QuoteText/QuoteText";
@@ -68,11 +68,11 @@ let QuoteBox = () => {
             />
           </>
         ) : (
-          <h2 className="underline decoration-blue-600 decoration-wavy text-9xl text-sky-600">
+          <p className="underline decoration-blue-600 decoration-wavy text-4xl text-sky-600 lg:text-9xl md:text-6xl">
             Loading
-          </h2>
+          </p>
         )}
-        <NewQuoteButton newQuoteButton={getNewQuote} backgroundColor={color} />
+        <Buttons newQuoteButton={getNewQuote} backgroundColor={color} />
         <Footer />
       </div>
     </div>

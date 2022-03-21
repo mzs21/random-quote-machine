@@ -1,6 +1,6 @@
-import { QuoteAPIData } from "../../Interface/Interface";
+import { QuoteAPIData, StyleProps } from "../../Interface/Interface";
 
-let QuoteAuthor = ({ author, foregroundColor }: QuoteAPIData) => {
+let QuoteAuthor = ({ author, foregroundColor }: (QuoteAPIData & StyleProps)) => {
   return (
     <div
       className="flex justify-end mt-6 font-medium"
